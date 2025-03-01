@@ -1,4 +1,9 @@
 /* General Styles */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -73,16 +78,16 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh; /* Cover the entire viewport height */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hide overflow from the animation */
+    overflow: hidden;
     background: linear-gradient(-45deg, #6a11cb, #2575fc, #6a11cb, #2575fc);
-    background-size: 400% 400%; /* Larger background size for animation */
-    animation: gradientAnimation 10s ease infinite; /* Animate the gradient */
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
 }
 
 @keyframes gradientAnimation {
@@ -100,28 +105,206 @@ body {
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
-    color: #fff; /* White text for better contrast */
+    color: #fff;
+}
+
+
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
 }
 
 .hero p {
     font-size: 20px;
-    color: #fff; /* White text for better contrast */
+    color: #fff;
+}
+
+/* Floating shapes */
+.floating-shapes {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 5%;
+    animation-duration: 8s;
+}
+
+.shape-2 {
+    width: 80px;
+    height: 80px;
+    top: 70%;
+    left: 20%;
+    animation-duration: 10s;
+}
+
+.shape-3 {
+    width: 120px;
+    height: 120px;
+    top: 40%;
+    left: 80%;
+    animation-duration: 12s;
+}
+
+.shape-4 {
+    width: 60px;
+    height: 60px;
+    top: 80%;
+    left: 70%;
+    animation-duration: 9s;
+}
+
+.shape-5 {
+    width: 90px;
+    height: 90px;
+    top: 20%;
+    left: 60%;
+    animation-duration: 7s;
+    border-radius: 10px; /* Square shape */
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.shape-6 {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgba(255, 255, 255, 0.2);
+    top: 60%;
+    left: 40%;
+    animation-duration: 11s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+    }
 }
 
 /* About Section */
 .about {
+    height: 100vh;
     padding: 60px 0;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about .container {
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensure content is above shapes */
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 1;
     text-align: center;
 }
 
-.about h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.about-image img {
+    width: 400px;
+    height: 450px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.about p {
+.about-text {
+    flex: 2;
+    max-width: 550px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2575fc;
+}
+
+.about-text p {
     font-size: 18px;
-    color: #666;
+    color: #2575fc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-text p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating shapes */
+.floating-shape {
+    position: absolute;
+    background: rgba(37, 117, 252, 0.1);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-7 {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 5%;
+    animation-duration: 10s;
+}
+
+.shape-8 {
+    width: 120px;
+    height: 120px;
+    top: 70%;
+    left: 20%;
+    animation-duration: 12s;
+}
+
+.shape-9 {
+    width: 60px;
+    height: 60px;
+    top: 40%;
+    left: 80%;
+    animation-duration: 8s;
+}
+
+.shape-10 {
+    width: 100px;
+    height: 100px;
+    top: 80%;
+    left: 70%;
+    animation-duration: 9s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+    }
 }
 
 /* Hero Section Button */
