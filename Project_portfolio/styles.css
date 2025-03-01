@@ -328,41 +328,69 @@ body {
 }
 
 
-/* Overview Section */
+/* Cool infinite background scrolling animation for the overview section */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+/* Animations */
+@keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/* Main styles for the overview section */
 .overview {
     height: 100vh;
     padding: 60px 0;
-    background-color: #f9f9f9; /* Light background */
     display: flex;
-    justify-content: center; /* Centers horizontally */
+    justify-content: center;
     align-items: center;
+    color: #999; /* Light text color for contrast */
+    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+    text-align: center;
+    /* Background image (50x50 grid pattern) */
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+    animation: bg-scrolling-reverse 0.92s infinite linear;
 }
 
 .overview h2 {
-    text-align: left; /* Aligns text to the left */
+    text-align: left;
     font-size: 36px;
     margin-bottom: 40px;
-    color: #2575fc; /* Dark text for contrast */
-    width: 80%; /* Matches the width of project-summary */
+    color: #2575fc; /* Blue heading */
+    width: 80%;
 }
-
 
 .project-grid {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    gap: 100px; /* Adds spacing between left and right sections */
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
     text-align: left;
     max-width: 1200px;
-    margin: 0 auto; /* Centers the entire section */
+    margin: 0 auto;
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .project-summary {
     width: 60%;
-    background: #f8f8f8;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
     padding: 20px;
-    
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .project-summary p {
@@ -372,13 +400,13 @@ body {
 .project-summary h3 {
     color: #2575fc;
 }
+
 .project-details {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 50%;
 }
-
 
 .project-card {
     background-color: #fff;
@@ -387,8 +415,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px; /* Set a maximum width */
-    min-height: 200px; /* Set a minimum height */
+    max-width: 400px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -397,19 +425,19 @@ body {
 .project-card h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: #2575fc; /* Blue heading */
+    color: #2575fc;
 }
 
 .project-description {
     font-size: 16px;
-    color: #666; /* Gray text */
+    color: #666;
     margin-bottom: 20px;
 }
 
 .project-link {
-    padding: 20px 20px;
-    background-color: #2575fc; /* Blue background */
-    color: white; /* White text */
+    padding: 10px 20px;
+    background-color: #2575fc;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -417,21 +445,20 @@ body {
 }
 
 .project-link:hover {
-    background-color: #1a5bbf; /* Darker blue on hover */
+    background-color: #1a5bbf;
 }
-
 
 .project-poster {
     width: 100%;
     height: auto;
-    max-height: 100px; /* Limit the image height */
-    object-fit: contain; /* Ensure the image fits well */
+    max-height: 100px;
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .project-poster:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
 
 /* Zoomed Image Container */
@@ -442,6 +469,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -487,13 +515,13 @@ body {
     text-align: center;
     font-size: 36px;
     margin-bottom: 40px;
-    color: white; /* White text for contrast */
+    color: #00d2ff; /* White text for contrast */
 }
 
 .certification-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 50px;
 }
 
 .certification-card {

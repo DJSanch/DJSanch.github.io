@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initAboutSectionAnimation();
     initSmoothScrolling();
     initFloatingBalls();
+    initOverviewAnimation(); // Add fade-in animation for overview section
 });
 
 // Sticky Navbar with Background Transition
@@ -187,4 +188,31 @@ function initFloatingBalls() {
             }
         );
     });
+}
+
+// Fade-in Animation for Overview Section
+function initOverviewAnimation() {
+    const projectDetails = document.querySelector('.project-summary');
+
+    // Create an Intersection Observer
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Add the fade-in animation class when the section is in view
+                    projectDetails.style.opacity = '1';
+                    projectDetails.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        },
+        {
+            threshold: 0.5, // Trigger when 50% of the section is visible
+        }
+    );
+
+    // Observe the overview section
+    const overviewSection = document.querySelector('.overview');
+    if (overviewSection) {
+        observer.observe(overviewSection);
+    }
 }
