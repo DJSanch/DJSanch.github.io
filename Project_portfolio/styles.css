@@ -42,7 +42,7 @@ body {
 
 /* Logo */
 .navbar .logo {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     text-decoration: none;
     color: #fff; /* White color to match the hero background */
@@ -68,7 +68,7 @@ body {
 .navbar .nav-links a {
     text-decoration: none;
     color: #fff; /* White color to match the hero background */
-    font-size: 18px;
+    font-size: 20px;
     transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
@@ -103,7 +103,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 65px;
     margin-bottom: 20px;
     color: #fff;
 }
@@ -116,7 +116,7 @@ body {
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 22px;
     color: #fff;
 }
 
@@ -330,130 +330,365 @@ body {
 
 /* Overview Section */
 .overview {
+    height: 100vh;
     padding: 60px 0;
+    background-color: #f9f9f9; /* Light background */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
 }
 
 .overview h2 {
-    text-align: center;
+    text-align: left; /* Aligns text to the left */
     font-size: 36px;
     margin-bottom: 40px;
+    color: #2575fc; /* Dark text for contrast */
+    width: 80%; /* Matches the width of project-summary */
 }
 
+
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    gap: 100px; /* Adds spacing between left and right sections */
+    text-align: left;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the entire section */
 }
+
+
+.project-summary {
+    width: 60%;
+    background: #f8f8f8;
+    padding: 20px;
+    
+}
+
+.project-summary p {
+    color: #2575fc;
+}
+
+.project-summary h3 {
+    color: #2575fc;
+}
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
 
 .project-card {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px; /* Set a maximum width */
+    min-height: 200px; /* Set a minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-card h3 {
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: #2575fc; /* Blue heading */
 }
 
-.project-card p {
+.project-description {
     font-size: 16px;
-    color: #666;
+    color: #666; /* Gray text */
+    margin-bottom: 20px;
 }
 
-/* Certifications Section */
-.certifications {
-    padding: 60px 0;
-    background-color: #f9f9f9; /* Light background */
-    text-align: center;
+.project-link {
+    padding: 20px 20px;
+    background-color: #2575fc; /* Blue background */
+    color: white; /* White text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.certifications h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #333;
+.project-link:hover {
+    background-color: #1a5bbf; /* Darker blue on hover */
 }
 
-.certification-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Landscape arrangement */
-    gap: 20px;
-    padding: 0 20px;
-}
 
-.certification-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.certification-card:hover {
-    transform: scale(1.05); /* Zoom effect */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.certification-card img {
+.project-poster {
     width: 100%;
-    height: 200px; /* Fixed height for landscape images */
-    object-fit: cover; /* Ensure images fit well */
+    height: auto;
+    max-height: 100px; /* Limit the image height */
+    object-fit: contain; /* Ensure the image fits well */
+    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.certification-card:hover img {
-    transform: scale(1.1); /* Zoom image on hover */
+.project-poster:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 /* Zoomed Image Container */
 .zoomed-image-container {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background */
-    z-index: 1000;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
-.zoomed-image-container img {
+.zoomed-image-container.active {
+    display: flex;
+}
+
+#zoomed-image {
     max-width: 90%;
     max-height: 90%;
     border-radius: 10px;
-    animation: zoomIn 0.3s ease; /* Zoom-in animation */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes zoomIn {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+/* Close Button */
+.close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-zoom:hover {
+    color: #ff0000;
+}
+
+/* Certifications Section */
+.certifications {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle, #0a1f3d, #1c3b6a); /* Dark blue gradient */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+}
+
+.certifications h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: white; /* White text for contrast */
+}
+
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.certification-card {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Ensure cards are above floating lights */
+    position: relative;
+    text-align: center;
+}
+
+.certification-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.certification-card img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Zoomed Image Container */
+.zoomed-image-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.zoomed-image-container.active {
+    display: flex;
+}
+
+#zoomed-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .close-zoom {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 40px;
-    color: #fff;
+    font-size: 30px;
+    color: white;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close-zoom:hover {
-    color: #ccc;
+    color: #ff0000; /* Red color on hover */
 }
 
+/* Floating lights */
+.light {
+    position: absolute;
+    width: 0px;
+    opacity: .75;
+    background-color: white;
+    box-shadow: #e9f1f1 0px 0px 20px 2px;
+    opacity: 0;
+    top: 100vh;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+
+.x1 {
+    -webkit-animation: floatUp 4s infinite linear;
+    -moz-animation: floatUp 4s infinite linear;
+    -o-animation: floatUp 4s infinite linear;
+    animation: floatUp 4s infinite linear;
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+.x2 {
+    -webkit-animation: floatUp 7s infinite linear;
+    -moz-animation: floatUp 7s infinite linear;
+    -o-animation: floatUp 7s infinite linear;
+    animation: floatUp 7s infinite linear;
+    -webkit-transform: scale(1.6);
+    -moz-transform: scale(1.6);
+    -o-transform: scale(1.6);
+    transform: scale(1.6);
+    left: 15%;
+}
+
+.x3 {
+    -webkit-animation: floatUp 2.5s infinite linear;
+    -moz-animation: floatUp 2.5s infinite linear;
+    -o-animation: floatUp 2.5s infinite linear;
+    animation: floatUp 2.5s infinite linear;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+    left: -15%;
+}
+
+.x4 {
+    -webkit-animation: floatUp 4.5s infinite linear;
+    -moz-animation: floatUp 4.5s infinite linear;
+    -o-animation: floatUp 4.5s infinite linear;
+    animation: floatUp 4.5s infinite linear;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    left: -34%;
+}
+
+.x5 {
+    -webkit-animation: floatUp 8s infinite linear;
+    -moz-animation: floatUp 8s infinite linear;
+    -o-animation: floatUp 8s infinite linear;
+    animation: floatUp 8s infinite linear;
+    -webkit-transform: scale(2.2);
+    -moz-transform: scale(2.2);
+    -o-transform: scale(2.2);
+    transform: scale(2.2);
+    left: -57%;
+}
+
+.x6 {
+    -webkit-animation: floatUp 3s infinite linear;
+    -moz-animation: floatUp 3s infinite linear;
+    -o-animation: floatUp 3s infinite linear;
+    animation: floatUp 3s infinite linear;
+    -webkit-transform: scale(.8);
+    -moz-transform: scale(.8);
+    -o-transform: scale(.8);
+    transform: scale(.8);
+    left: -81%;
+}
+
+.x7 {
+    -webkit-animation: floatUp 5.3s infinite linear;
+    -moz-animation: floatUp 5.3s infinite linear;
+    -o-animation: floatUp 5.3s infinite linear;
+    animation: floatUp 5.3s infinite linear;
+    -webkit-transform: scale(3.2);
+    -moz-transform: scale(3.2);
+    -o-transform: scale(3.2);
+    transform: scale(3.2);
+    left: 37%;
+}
+
+.x8 {
+    -webkit-animation: floatUp 4.7s infinite linear;
+    -moz-animation: floatUp 4.7s infinite linear;
+    -o-animation: floatUp 4.7s infinite linear;
+    animation: floatUp 4.7s infinite linear;
+    -webkit-transform: scale(1.7);
+    -moz-transform: scale(1.7);
+    -o-transform: scale(1.7);
+    transform: scale(1.7);
+    left: 62%;
+}
+
+.x9 {
+    -webkit-animation: floatUp 4.1s infinite linear;
+    -moz-animation: floatUp 4.1s infinite linear;
+    -o-animation: floatUp 4.1s infinite linear;
+    animation: floatUp 4.1s infinite linear;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    left: 85%;
+}
+
+@keyframes floatUp {
+    0% { top: 100vh; opacity: 0; }
+    25% { opacity: 1; }
+    50% { top: 0vh; opacity: .8; }
+    75% { opacity: 1; }
+    100% { top: -100vh; opacity: 0; }
+}
 /* Footer */
 footer {
-    background-color: #333;
+    background: linear-gradient(to right, rgba(0, 150, 200, 0.9), rgba(40, 90, 160, 0.9));
     color: #fff;
     text-align: center;
     padding: 20px 0;
