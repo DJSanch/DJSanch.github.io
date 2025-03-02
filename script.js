@@ -215,4 +215,12 @@ function initOverviewAnimation() {
     if (overviewSection) {
         observer.observe(overviewSection);
     }
+
+    // Mobile Navigation Toggle
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active'); // Toggle the 'active' class
+    });
 }

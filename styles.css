@@ -76,6 +76,38 @@ body {
     color: #00d2ff; /* Light blue hover color to match the gradient */
 }
 
+/* Mobile Navigation */
+.navbar .menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, rgba(0, 150, 200, 0.9), rgba(40, 90, 160, 0.9));
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .navbar .menu-icon {
+        display: block;
+    }
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -340,8 +372,8 @@ body {
 
 /* Main styles for the overview section */
 .overview {
-    height: 100vh;
-    padding: 60px 0;
+    height: auto; /* Changed from 100vh to auto for better responsiveness */
+    padding: 40px 0; /* Reduced padding for smaller screens */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -354,20 +386,21 @@ body {
 }
 
 .overview h2 {
-    text-align: left;
-    font-size: 36px;
-    margin-bottom: 40px;
+    text-align: center; /* Centered for mobile */
+    font-size: 28px; /* Reduced font size for mobile */
+    margin-bottom: 20px; /* Reduced margin for mobile */
     color: #2575fc; /* Blue heading */
-    width: 80%;
+    width: 100%; /* Full width for mobile */
 }
 
 .project-grid {
     display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
     align-items: center;
     justify-content: center;
-    gap: 100px;
-    text-align: left;
-    max-width: 1200px;
+    gap: 40px; /* Reduced gap for mobile */
+    text-align: center; /* Centered text for mobile */
+    max-width: 100%; /* Full width for mobile */
     margin: 0 auto;
 }
 
@@ -384,9 +417,9 @@ body {
 }
 
 .project-summary {
-    width: 60%;
+    width: 90%; /* Full width for mobile */
     background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    padding: 20px;
+    padding: 15px; /* Reduced padding for mobile */
     border-radius: 10px;
     opacity: 0;
     transform: translateY(20px);
@@ -395,53 +428,56 @@ body {
 
 .project-summary p {
     color: #2575fc;
+    font-size: 14px; /* Reduced font size for mobile */
 }
 
 .project-summary h3 {
     color: #2575fc;
+    font-size: 20px; /* Reduced font size for mobile */
 }
 
 .project-details {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 50%;
+    width: 90%; /* Full width for mobile */
 }
 
 .project-card {
     background-color: #fff;
-    padding: 20px;
+    padding: 15px; /* Reduced padding for mobile */
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px;
-    min-height: 200px;
+    max-width: 100%; /* Full width for mobile */
+    min-height: auto; /* Adjusted for mobile */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .project-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 20px; /* Reduced font size for mobile */
+    margin-bottom: 10px; /* Reduced margin for mobile */
     color: #2575fc;
 }
 
 .project-description {
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size for mobile */
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin for mobile */
 }
 
 .project-link {
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reduced padding for mobile */
     background-color: #2575fc;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     cursor: pointer;
+    font-size: 14px; /* Reduced font size for mobile */
 }
 
 .project-link:hover {
@@ -451,7 +487,7 @@ body {
 .project-poster {
     width: 100%;
     height: auto;
-    max-height: 100px;
+    max-height: 80px; /* Reduced height for mobile */
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -491,13 +527,79 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 30px;
+    font-size: 24px; /* Reduced font size for mobile */
     color: white;
     cursor: pointer;
 }
 
 .close-zoom:hover {
     color: #ff0000;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .overview {
+        height: 100vh; /* Full height for larger screens */
+        padding: 60px 0; /* Increased padding for larger screens */
+    }
+
+    .overview h2 {
+        text-align: left; /* Align left for larger screens */
+        font-size: 36px; /* Larger font size for larger screens */
+        margin-bottom: 40px; /* Increased margin for larger screens */
+        width: 80%; /* Adjusted width for larger screens */
+    }
+
+    .project-grid {
+        flex-direction: row; /* Side-by-side layout for larger screens */
+        gap: 100px; /* Increased gap for larger screens */
+        text-align: left; /* Align left for larger screens */
+        max-width: 1200px; /* Max width for larger screens */
+    }
+
+    .project-summary {
+        width: 60%; /* Adjusted width for larger screens */
+        padding: 20px; /* Increased padding for larger screens */
+    }
+
+    .project-summary p {
+        font-size: 16px; /* Larger font size for larger screens */
+    }
+
+    .project-summary h3 {
+        font-size: 24px; /* Larger font size for larger screens */
+    }
+
+    .project-details {
+        width: 50%; /* Adjusted width for larger screens */
+    }
+
+    .project-card {
+        padding: 20px; /* Increased padding for larger screens */
+    }
+
+    .project-card h3 {
+        font-size: 24px; /* Larger font size for larger screens */
+        margin-bottom: 15px; /* Increased margin for larger screens */
+    }
+
+    .project-description {
+        font-size: 16px; /* Larger font size for larger screens */
+        margin-bottom: 20px; /* Increased margin for larger screens */
+    }
+
+    .project-link {
+        padding: 10px 20px; /* Increased padding for larger screens */
+        font-size: 16px; /* Larger font size for larger screens */
+    }
+
+    .project-poster {
+        max-height: 100px; /* Increased height for larger screens */
+    }
+
+    .close-zoom {
+        font-size: 30px; /* Larger font size for larger screens */
+    }
 }
 
 /* Certifications Section */
@@ -725,4 +827,156 @@ footer {
 footer p {
     margin: 0;
     font-size: 16px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image img {
+        max-width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+    }
+
+    .overview h2 {
+        font-size: 24px;
+    }
+
+    .project-summary {
+        padding: 15px;
+    }
+
+    .project-card h3 {
+        font-size: 20px;
+    }
+
+    .project-description {
+        font-size: 14px;
+    }
+
+    .certifications h2 {
+        font-size: 24px;
+    }
+
+    .certification-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .about-text h2 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 12px;
+    }
+
+    .overview h2 {
+        font-size: 20px;
+    }
+
+    .project-summary {
+        padding: 10px;
+    }
+
+    .project-card h3 {
+        font-size: 18px;
+    }
+
+    .project-description {
+        font-size: 12px;
+    }
+
+    .certifications h2 {
+        font-size: 20px;
+    }
+
+    .certification-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* Media Queries for Mobile Phones */
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .about-text h2 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 12px;
+    }
+
+    .overview h2 {
+        font-size: 20px;
+    }
+
+    .project-summary {
+        padding: 10px;
+    }
+
+    .project-card h3 {
+        font-size: 18px;
+    }
+
+    .project-description {
+        font-size: 12px;
+    }
+
+    .certifications h2 {
+        font-size: 20px;
+    }
+
+    .certification-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
 }
